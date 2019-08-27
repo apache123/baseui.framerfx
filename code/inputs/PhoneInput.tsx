@@ -6,7 +6,7 @@ import { withHOC } from "../withHOC"
 
 const InnerPhoneInput: React.SFC<any> = ({ text, country: defaultCountry }) => {
   const [currentText, setText] = React.useState(text)
-  const [country, setCountry] = React.useState(defaultCountry)
+  const [country, setCountry] = React.useState(System.COUNTRIES[defaultCountry])
   return (
     <System.PhoneInput
       text={currentText}
