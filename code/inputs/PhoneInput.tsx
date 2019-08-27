@@ -1,12 +1,12 @@
 import * as System from "baseui/phone-input"
-import { addPropertyControls } from "framer"
+import { addPropertyControls, ControlType } from "framer"
 import * as React from "react"
 import { controls, merge } from "../generated/PhoneInput"
 import { withHOC } from "../withHOC"
 
-const InnerPhoneInput: React.SFC<any> = ({ text }) => {
+const InnerPhoneInput: React.SFC<any> = ({ text, country: defaultCountry }) => {
   const [currentText, setText] = React.useState(text)
-  const [country, setCountry] = React.useState(System.COUNTRIES.US)
+  const [country, setCountry] = React.useState(defaultCountry)
   return (
     <System.PhoneInput
       text={currentText}
@@ -30,4 +30,11 @@ PhoneInput.defaultProps = {
 
 addPropertyControls(PhoneInput, {
   text: merge(controls.text, { defaultValue: "650413182" }),
+  country: {
+    type: ControlType.Enum,
+    title: "Country",
+    defaultValue: "US",
+    options: Object.keys(System.COUNTRIES),
+    optionTitles: Object.keys(System.COUNTRIES).map(key => System.COUNTRIES[key].label),
+  },
 })
