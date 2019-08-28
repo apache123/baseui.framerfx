@@ -4,8 +4,8 @@ import { addPropertyControls } from "framer"
 import { controls, merge } from "../generated/PaymentCard"
 import { withHOC } from "../withHOC"
 import { compose } from "../utils/compose"
-import { withManagedState } from "../utils/withManagedState"
-import { SetGlobalStatePropertyControls } from "../utils/PropertyControls"
+import { withManagedState } from "../utils/stateManagement/withManagedState"
+import { UseGlobalStatePropertyControls } from "../utils/PropertyControls"
 
 const InnerPaymentCard: React.SFC<any> = ({ onChange, ...props }) => {
   const onValueChange = React.useCallback(e => onChange(e.target.value), [])
@@ -33,5 +33,5 @@ addPropertyControls(PaymentCard, {
   }),
   size: merge(controls.size, {}),
   value: merge(controls.value, { defaultValue: "" }),
-  ...SetGlobalStatePropertyControls,
+  ...UseGlobalStatePropertyControls,
 })

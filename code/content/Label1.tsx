@@ -3,7 +3,7 @@ import * as System from "baseui/typography"
 import { addPropertyControls } from "framer"
 import { withHOC } from "../withHOC"
 import { TextPropertyControl, ColorPropertyControl, UseGlobalStatePropertyControls } from "../utils/PropertyControls"
-import { withManagedState } from "../utils/withManagedState"
+import { withManagedState } from "../utils/stateManagement/withManagedState"
 import { compose } from "../utils/compose"
 
 const InnerLabel1: React.SFC<any> = ({ text, ["children"]: _, willChangeTransform: __, ...props }) => {
