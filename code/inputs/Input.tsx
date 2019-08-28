@@ -3,12 +3,12 @@ import { addPropertyControls, ControlType } from "framer"
 import * as React from "react"
 import { compose } from "../utils/compose"
 import { controls, merge } from "../generated/Input"
-import { SetGlobalStatePropertyControls } from "../utils/PropertyControls"
-import { withManagedState } from "../utils/withManagedState"
+import { UseGlobalStatePropertyControls } from "../utils/PropertyControls"
+import { withManagedState } from "../utils/stateManagement/withManagedState"
 import { withHOC } from "../withHOC"
 
 const InnerInput: React.SFC<any> = ({ onChange, ...props }) => {
-  const onValueChange = React.useCallback(e => onChange(e.target.value), [])
+  const onValueChange = React.useCallback(e => onChange(e.target.value), [onChange])
   return <System.Input onChange={onValueChange} {...props} />
 }
 
@@ -31,5 +31,5 @@ addPropertyControls(Input, {
   placeholder: merge(controls.placeholder, { defaultValue: "placeholder" }),
   value: merge(controls.value, {}),
   type: { type: ControlType.Enum, options: ["text", "password", "number"], defaultValue: "text" },
-  ...SetGlobalStatePropertyControls,
+  ...UseGlobalStatePropertyControls,
 })

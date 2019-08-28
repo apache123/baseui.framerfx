@@ -1,21 +1,7 @@
 import { useState, useCallback, useEffect } from "react"
 
-export function useManagedState<T>(
-  value: T,
-  onChangeGlobalVariable?: (value: any) => void
-): [T, React.Dispatch<React.SetStateAction<T>>] {
-  const [currentValue, setValue] = useState(value)
+export function useManagedState<T>(initialValue: T): [T, React.Dispatch<React.SetStateAction<T>>] {
+  const [currentValue, setValue] = useState(initialValue)
 
-  // Set local state and global state (if necessary)
-  const setManagedValue = useCallback(
-    value => {
-      setValue(value)
-      if (onChangeGlobalVariable) {
-        onChangeGlobalVariable(value)
-      }
-    },
-    [onChangeGlobalVariable]
-  )
-
-  return [currentValue, setManagedValue]
+  return [currentValue, setValue]
 }
