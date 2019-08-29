@@ -22,9 +22,9 @@ export const withManagedState = (Component): React.SFC<any> => {
     const [currentGlobalStateKey, setCurrentGlobalStateKey] = React.useState(globalStateKey)
 
     const valueId = currentShouldUseGlobalState && !!currentGlobalStateKey ? currentGlobalStateKey : props.id
-    const initialValue = props[valuePropName]
+    const localValue = props[valuePropName]
     const currentValue =
-      globalState && globalState.values[valueId] !== undefined ? globalState.values[valueId] : initialValue
+      globalState && globalState.values[valueId] !== undefined ? globalState.values[valueId] : localValue
 
     /**
      * Registers this component as a state subscriber on mount (local & global).
@@ -32,8 +32,7 @@ export const withManagedState = (Component): React.SFC<any> => {
      * @returns A function which cleans up the subscription created on mount.
      */
     React.useEffect(() => {
-      dispatch(registerSubscription(props.id, valueId, initialValue))
-
+      dispatch(registerSubscription(props.id, valueId, localValue))
       return () => dispatch(unregisterSubscription(props.id))
     }, [])
 
@@ -91,6 +90,21 @@ export const withManagedState = (Component): React.SFC<any> => {
       },
       [props.id, valueId]
     )
+
+    /**
+     * If the local value changes & doesn't match the managed state value,
+     * we should update the managed state value to reflect this.
+     *
+     * This effect will run if a property control is modified - the property control
+     * value should be our single source of truth if it's changed after a component mounts.
+     *
+     * @NOTE Should we only set the value if the component isn't using a globally managed state?
+     */
+    React.useEffect(() => {
+      if (localValue !== currentValue) {
+        onChange(localValue)
+      }
+    }, [localValue, onChange])
 
     const updatedProps = {
       ...props,
