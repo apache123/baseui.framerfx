@@ -3,6 +3,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@types/react": "^16.8",
+		"framer": "^1.0",
 		"prettier": "^1.18.2"
 	},
 	"peerDependencies": {
@@ -10,7 +11,8 @@
 		"react": "^16.8"
 	},
 	"framer": {
-		"id": "dcd369d0-d444-4eb5-9f6f-945cad786c86"
+		"id": "dcd369d0-d444-4eb5-9f6f-945cad786c86",
+		"displayName": "Base Web"
 	},
 	"author": "Iain Kettles",
 	"dependencies": {
@@ -24,5 +26,7 @@
 	},
 	"scripts": {
 		"format": "prettier --write './code/**'"
-	}
+	},
+	"name": "@framer/fhur.baseui",
+	"version": "1.1.0"
 }

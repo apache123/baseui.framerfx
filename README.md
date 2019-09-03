@@ -1,14 +1,14 @@
 # Base Web
 
-Uber's [Base Web design system](https://baseweb.design/) as a Framer X package.
+Uber's [Base Web design system](https://baseweb.design/) as a Framer X package, also known as baseui.
 
-![Base Web](/metadata/background.png "Base Web")
+![Base Web](https://github.com/framer/baseui.framerfx/raw/master/metadata/background.png "Base Web")
 
 #### Sections
 
 All components have been split into sections with the intention to replicate Base Web's documentation page.
 
-![Sections](/metadata/sections.png "Sections")
+![Sections](https://github.com/framer/baseui.framerfx/raw/master/metadata/sections.png "Sections")
 
 #### Known Issues 🚧
 
