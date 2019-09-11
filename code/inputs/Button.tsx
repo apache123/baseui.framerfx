@@ -43,8 +43,6 @@ export const ButtonPropertyControls: PropertyControls = {
     type: ControlType.String,
     defaultValue: "Button",
   },
-  href: merge(controls.href, {}),
-
   containsIcon: {
     type: ControlType.Boolean,
     title: "Icon",
