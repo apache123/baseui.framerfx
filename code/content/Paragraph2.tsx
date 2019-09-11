@@ -11,8 +11,8 @@ const InnerParagraph2: React.SFC<any> = ({ text, ["children"]: _, willChangeTran
 export const Paragraph2 = withHOC(InnerParagraph2)
 
 Paragraph2.defaultProps = {
-  width: 150,
-  height: 50,
+  width: 86,
+  height: 38,
 }
 
 addPropertyControls(Paragraph2, {

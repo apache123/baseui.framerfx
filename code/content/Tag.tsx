@@ -11,7 +11,7 @@ const InnerTag: React.SFC<any> = ({ text, ...props }) => {
 export const Tag = withHOC(InnerTag)
 
 Tag.defaultProps = {
-  width: 150,
+  width: 113,
   height: 32,
 }
 

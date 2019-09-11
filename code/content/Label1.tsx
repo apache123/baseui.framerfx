@@ -16,8 +16,8 @@ export const Label1 = compose(
 )(InnerLabel1)
 
 Label1.defaultProps = {
-  width: 150,
-  height: 50,
+  width: 80,
+  height: 20,
   valuePropName: "text",
 }
 

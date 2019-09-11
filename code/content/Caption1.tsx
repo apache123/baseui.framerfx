@@ -11,8 +11,8 @@ const InnerCaption1: React.SFC<any> = ({ text, ["children"]: _, willChangeTransf
 export const Caption1 = withHOC(InnerCaption1)
 
 Caption1.defaultProps = {
-  width: 150,
-  height: 50,
+  width: 85,
+  height: 20,
 }
 
 addPropertyControls(Caption1, {

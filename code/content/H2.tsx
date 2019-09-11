@@ -11,8 +11,8 @@ const InnerH2: React.SFC<any> = ({ text, ["children"]: _, willChangeTransform: _
 export const H2 = withHOC(InnerH2)
 
 H2.defaultProps = {
-  width: 360,
-  height: 200,
+  width: 270,
+  height: 110,
 }
 
 addPropertyControls(H2, {

@@ -11,8 +11,8 @@ const InnerLabel2: React.SFC<any> = ({ text, ["children"]: _, willChangeTransfor
 export const Label2 = withHOC(InnerLabel2)
 
 Label2.defaultProps = {
-  width: 150,
-  height: 50,
+  width: 85,
+  height: 24,
 }
 
 addPropertyControls(Label2, {

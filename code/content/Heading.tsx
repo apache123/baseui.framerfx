@@ -16,7 +16,7 @@ const InnerHeading: React.SFC<any> = ({ text, ["children"]: _, willChangeTransfo
 export const Heading = withHOC(InnerHeading)
 
 Heading.defaultProps = {
-  width: 765,
+  width: 360,
   height: 136,
 }
 

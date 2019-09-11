@@ -11,8 +11,8 @@ const InnerH4: React.SFC<any> = ({ text, ["children"]: _, willChangeTransform: _
 export const H4 = withHOC(InnerH4)
 
 H4.defaultProps = {
-  width: 360,
-  height: 200,
+  width: 170,
+  height: 88,
 }
 
 addPropertyControls(H4, {
