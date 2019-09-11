@@ -24,7 +24,7 @@ addPropertyControls(Toast, {
   },
   text: {
     type: ControlType.String,
-    defaultValue: "Warning!, something happened",
+    defaultValue: "Warning! Something happened!",
   },
   closeable: merge(controls.closeable, { defaultValue: true }),
   kind: merge(controls.kind, { defaultValue: System.KIND.info }),
