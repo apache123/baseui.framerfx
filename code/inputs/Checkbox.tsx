@@ -18,7 +18,7 @@ const InnerCheckbox: React.SFC<any> = ({ checked, label, ...props }) => {
 export const Checkbox = withHOC(InnerCheckbox)
 
 Checkbox.defaultProps = {
-  width: 114,
+  width: 125,
   height: 25,
 }
 
