@@ -264,11 +264,6 @@ focus-lock@^0.6.3:
   resolved "https://registry.yarnpkg.com/focus-lock/-/focus-lock-0.6.5.tgz#f6eb37832a9b1b205406175f5277396a28c0fce1"
   integrity sha512-i/mVBOoa9o+tl+u9owOJUF8k8L85odZNIsctB+JAK2HFT8jckiBwmk+3uydlm6FN8czgnkIwQtBv6yyAbrzXjw==
 
-framer@^1.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/framer/-/framer-1.1.1.tgz#232d3877a68087e9c95f3759892acb9f63ba41d4"
-  integrity sha512-igqdB2EMt8xYZ89CP8vd7NmpKklw4fkD3Okd8FUA8aD0pjdcTWvShd9FNhi3YzmlQpWHF83T6zUJoLJpt74cmg==
-
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
