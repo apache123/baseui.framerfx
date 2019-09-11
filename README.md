@@ -20,4 +20,4 @@ All components have been split into sections with the intention to replicate Bas
 
 - What is the `code/generated` folder?
 
-  `baseui.framerx` was created using the [@framerj/scomponent-importer](https://www.npmjs.com/package/@framerjs/component-importer). This folder should be cleaned up at some point since many of the generated files are not used anymore. The `importer.config.json` is also a product of the `component-importer` and should also be cleaned up at some point.
+  `baseui.framerx` was created using the [@framerjs/component-importer](https://www.npmjs.com/package/@framerjs/component-importer). This folder should be cleaned up at some point since many of the generated files are not used anymore. The `importer.config.json` is also a product of the `component-importer` and should also be cleaned up at some point.
