@@ -60,5 +60,4 @@ addPropertyControls(Card, {
     ...ButtonPropertyControls.kind,
     title: "Button Kind",
   },
-  ...ThemePropertyControl,
 })

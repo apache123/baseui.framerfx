@@ -39,5 +39,4 @@ addPropertyControls(ProgressSteps, {
     step: 1,
     displayStepper: true,
   }),
-  ...ThemePropertyControl,
 })

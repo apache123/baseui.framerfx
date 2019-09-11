@@ -54,5 +54,4 @@ addPropertyControls(BaseInput, {
   },
   value: merge(controls.value, {}),
   rows: merge(controls.rows, { hidden: props => props.type !== "textarea", defaultValue: 2 }),
-  ...ThemePropertyControl,
 })

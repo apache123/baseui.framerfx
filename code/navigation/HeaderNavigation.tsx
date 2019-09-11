@@ -84,7 +84,6 @@ HeaderNavigation.defaultProps = {
 }
 
 addPropertyControls(HeaderNavigation, {
-  ...ThemePropertyControl,
   leftItems: {
     ...ItemPropertyControlDescription,
     title: "Left Items",

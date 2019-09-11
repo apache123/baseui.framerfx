@@ -62,7 +62,6 @@ export const ButtonPropertyControls: PropertyControls = {
     defaultValue: "left",
     hidden: props => !props.containsIcon,
   },
-  ...ThemePropertyControl,
 }
 
 addPropertyControls(Button, ButtonPropertyControls)
