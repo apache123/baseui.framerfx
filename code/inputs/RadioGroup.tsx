@@ -23,7 +23,7 @@ const InnerRadioGroup: React.SFC<any> = ({ value, items, ...props }) => {
 export const RadioGroup = withHOC(InnerRadioGroup)
 
 RadioGroup.defaultProps = {
-  width: 150,
+  width: 100,
   height: 110,
 }
 

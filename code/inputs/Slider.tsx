@@ -14,7 +14,7 @@ const InnerSlider: React.SFC<any> = ({ valueFrom, valueTo, ...props }) => {
 export const Slider = withHOC(InnerSlider)
 
 Slider.defaultProps = {
-  width: 150,
+  width: 275,
   height: 90,
 }
 
