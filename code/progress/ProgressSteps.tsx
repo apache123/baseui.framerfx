@@ -19,8 +19,8 @@ const InnerProgressSteps: React.SFC = props => {
 export const ProgressSteps = withHOC(InnerProgressSteps)
 
 ProgressSteps.defaultProps = {
-  width: 100,
-  height: 105,
+  width: 105,
+  height: 107,
 }
 
 addPropertyControls(ProgressSteps, {
