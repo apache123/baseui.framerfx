@@ -6,7 +6,7 @@ import { withHOC } from "../withHOC"
 import { useManagedState } from "../utils/useManagedState"
 
 const InnerTimePicker: React.SFC<any> = ({ value, ...props }) => {
-  const [currentValue, setValue] = useManagedState(value)
+  const [currentValue, setValue] = useManagedState(value || null)
 
   return <System.TimePicker value={currentValue} onChange={e => setValue(e)} {...props} />
 }
