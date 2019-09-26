@@ -6,12 +6,12 @@ import { ThemePropertyControl } from "../utils/PropertyControls"
 import { withHOC } from "../withHOC"
 import { RawIcons } from "../icons/utils"
 
-const InnerButton: React.SFC<any> = ({ containsIcon, icon, iconLocation, text, willChangeTransform: _, ...props }) => {
+const InnerButton: React.SFC<any> = ({ containsIcon, icon, iconLocation, iconSize, text, willChangeTransform: _, ...props }) => {
   const enhancerFunction =
     RawIcons[icon] && containsIcon
       ? () => {
           const Icon = RawIcons[icon]
-          return <Icon />
+          return <Icon size={iconSize} />
         }
       : undefined
 
@@ -53,6 +53,12 @@ export const ButtonPropertyControls: PropertyControls = {
     title: "Select Icon",
     options: ["none", ...Object.keys(RawIcons)],
     defaultValue: "none",
+    hidden: props => !props.containsIcon,
+  },
+  iconSize: {
+    type: ControlType.Number,
+    title: "Icon Size",
+    defaultValue: 16,
     hidden: props => !props.containsIcon,
   },
   iconLocation: {

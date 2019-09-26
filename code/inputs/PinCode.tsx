@@ -5,10 +5,17 @@ import { controls, merge } from "../generated/PinCode"
 import { useManagedState } from "../utils/useManagedState"
 import { withHOC } from "../withHOC"
 
-const InnerPinCode: React.SFC<any> = ({ values, ...props }) => {
+const InnerPinCode: React.SFC<any> = ({ values, onChange: originalOnChange, ...props }) => {
   const [currentValues, setValues] = useManagedState<string[]>(values)
 
-  return <System.PinCode values={currentValues} onChange={e => setValues(e.values)} {...props} />
+  const onChange = React.useCallback(e => {
+    setValues(e.values)
+    if (typeof originalOnChange === 'function') {
+      originalOnChange(e.values)
+    }
+  }, [originalOnChange])
+
+  return <System.PinCode values={currentValues} onChange={onChange} {...props} />
 }
 
 export const PinCode = withHOC(InnerPinCode)

@@ -5,10 +5,17 @@ import { controls, merge } from "../generated/Slider"
 import { withHOC } from "../withHOC"
 import { useManagedState } from "../utils/useManagedState"
 
-const InnerSlider: React.SFC<any> = ({ valueFrom, valueTo, ...props }) => {
+const InnerSlider: React.SFC<any> = ({ valueFrom, valueTo, onChange: originalOnChange, ...props }) => {
   const [currentValue, setValue] = useManagedState<number[]>([valueFrom, valueTo])
 
-  return <System.Slider value={currentValue} onChange={e => setValue(e.value)} {...props} />
+  const onChange = React.useCallback(e => {
+    setValue(e.value)
+    if (typeof originalOnChange === 'function') {
+      originalOnChange(e.value)
+    }
+  }, [originalOnChange])
+
+  return <System.Slider value={currentValue} onChange={onChange} {...props} />
 }
 
 export const Slider = withHOC(InnerSlider)

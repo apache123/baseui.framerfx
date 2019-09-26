@@ -178,7 +178,6 @@ export function useFormControlValidation<T extends FormValidationProps>(): [
   const [validationResult, setValidationResult] = React.useState<ValidationResult>({})
 
   function startValidation(props: T, value: any) {
-    console.log("start validation", value)
     const validator = createValidator(props)
     const validationResult = validator(value)
       ? {
@@ -188,7 +187,6 @@ export function useFormControlValidation<T extends FormValidationProps>(): [
           error: props.error,
         }
 
-    console.log("Result is", validationResult, props)
     setValidationResult(validationResult)
   }
 

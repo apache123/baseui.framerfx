@@ -4,19 +4,30 @@ import * as React from "react"
 import { controls, merge } from "../generated/PhoneInput"
 import { withHOC } from "../withHOC"
 
-const InnerPhoneInput: React.SFC<any> = ({ text, country: defaultCountry }) => {
+const InnerPhoneInput: React.SFC<any> = ({ text, country: defaultCountry, onTextChange: originalOnTextChange, onCountryChange: originalOnCountryChange }) => {
   const [currentText, setText] = React.useState(text)
   const [country, setCountry] = React.useState(System.COUNTRIES[defaultCountry])
+
+  const onTextChange = React.useCallback(e => {
+    setText(e.currentTarget.value)
+    if (typeof originalOnTextChange === 'function') {
+      originalOnTextChange(e.currentTarget.value)
+    }
+  }, [originalOnTextChange])
+
+  const onCountryChange = React.useCallback(e => {
+    setCountry(e.option)
+    if (typeof originalOnCountryChange === 'function') {
+      originalOnCountryChange(e.option)
+    }
+  }, [originalOnCountryChange])
+
   return (
     <System.PhoneInput
       text={currentText}
       country={country}
-      onTextChange={event => {
-        setText(event.currentTarget.value)
-      }}
-      onCountryChange={(event: any) => {
-        setCountry(event.option)
-      }}
+      onTextChange={onTextChange}
+      onCountryChange={onCountryChange}
     />
   )
 }

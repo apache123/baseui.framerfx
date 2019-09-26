@@ -14,7 +14,7 @@ import { registerSubscription, unregisterSubscription, setValue } from "./action
  * @returns A component that subscribes to a local/global state value
  */
 export const withManagedState = (Component): React.SFC<any> => {
-  return ({ shouldUseGlobalState, globalStateKey, valuePropName, ...props }) => {
+  return ({ shouldUseGlobalState, globalStateKey, valuePropName, onChange: originalOnChange, ...props }) => {
     const [globalState] = useGlobal<GlobalState>("managedState")
     const dispatch = useDispatch<GlobalState>(reducer, "managedState")
 
@@ -87,8 +87,11 @@ export const withManagedState = (Component): React.SFC<any> => {
     const onChange = React.useCallback(
       changedValue => {
         dispatch(setValue(valueId, changedValue))
+        if (typeof originalOnChange === 'function') {
+          originalOnChange(changedValue)
+        }
       },
-      [props.id, valueId]
+      [props.id, valueId, originalOnChange]
     )
 
     /**

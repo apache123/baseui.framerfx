@@ -5,9 +5,17 @@ import { controls, merge } from "../generated/Textarea"
 import { withHOC } from "../withHOC"
 import { useManagedState } from "../utils/useManagedState"
 
-const InnerTextarea: React.SFC<any> = ({ value, ...props }) => {
+const InnerTextarea: React.SFC<any> = ({ value, onChange: originalOnChange, ...props }) => {
   const [currentValue, setValue] = useManagedState(value)
-  return <System.Textarea value={currentValue} onChange={e => setValue(e.target["value"])} {...props} />
+
+  const onChange = React.useCallback(e => {
+    setValue(e.target["value"])
+    if (typeof originalOnChange === 'function') {
+      originalOnChange(e.target["value"])
+    }
+  }, [originalOnChange])
+
+  return <System.Textarea value={currentValue} onChange={onChange} {...props} />
 }
 
 export const Textarea = withHOC(InnerTextarea)

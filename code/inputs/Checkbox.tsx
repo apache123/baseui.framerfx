@@ -1,15 +1,22 @@
 import * as React from "react"
 import * as System from "baseui/checkbox"
-import { ControlType, PropertyControls, addPropertyControls } from "framer"
+import { addPropertyControls } from "framer"
 import { controls, merge } from "../generated/Checkbox"
 import { withHOC } from "../withHOC"
 import { useManagedState } from "../utils/useManagedState"
 import { LabelPropertyControl } from "../utils/PropertyControls"
 
-const InnerCheckbox: React.SFC<any> = ({ checked, label, ...props }) => {
+const InnerCheckbox: React.SFC<any> = ({ checked, label, onChange: originalOnChange, ...props }) => {
   const [currentlyChecked, setChecked] = useManagedState(checked)
+  const onChange = React.useCallback(e => {
+    setChecked(e.target["checked"])
+    if (typeof originalOnChange === 'function') {
+      originalOnChange(e.target["checked"])
+    }
+  }, [originalOnChange])
+
   return (
-    <System.Checkbox checked={currentlyChecked} onChange={e => setChecked(e.target["checked"])} {...props}>
+    <System.Checkbox checked={currentlyChecked} onChange={onChange} {...props}>
       {label}
     </System.Checkbox>
   )

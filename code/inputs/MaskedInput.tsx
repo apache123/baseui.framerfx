@@ -5,9 +5,17 @@ import { controls, merge } from "../generated/MaskedInput"
 import { withHOC } from "../withHOC"
 import { useManagedState } from "../utils/useManagedState"
 
-const InnerMaskedInput: React.SFC<any> = ({ value, willChangeTransform: _, ...props }) => {
+const InnerMaskedInput: React.SFC<any> = ({ value, willChangeTransform: _, onChange: originalOnChange, ...props }) => {
   const [currentValue, setValue] = useManagedState(value)
-  return <System.MaskedInput value={currentValue} onChange={e => setValue(e.target["value"])} {...props} />
+  
+  const onChange = React.useCallback(e => {
+    setValue(e.target["value"])
+    if (typeof originalOnChange === 'function') {
+      originalOnChange(e.target["value"])
+    }
+  }, [originalOnChange])
+
+  return <System.MaskedInput value={currentValue} onChange={onChange} {...props} />
 }
 
 export const MaskedInput = withHOC(InnerMaskedInput)

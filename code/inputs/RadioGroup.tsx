@@ -5,10 +5,17 @@ import { controls, merge } from "../generated/RadioGroup"
 import { withHOC } from "../withHOC"
 import { useManagedState } from "../utils/useManagedState"
 
-const InnerRadioGroup: React.SFC<any> = ({ value, items, ...props }) => {
+const InnerRadioGroup: React.SFC<any> = ({ value, items, onChange: originalOnChange, ...props }) => {
   const [currentValue, setValue] = useManagedState(value)
+  const onChange = React.useCallback(e => {
+    setValue(e.target["value"])
+    if (typeof originalOnChange === 'function') {
+      originalOnChange(e.target["value"])
+    }
+  }, [originalOnChange])
+
   return (
-    <System.RadioGroup {...props} value={currentValue} onChange={e => setValue(e.target["value"])}>
+    <System.RadioGroup {...props} value={currentValue} onChange={onChange}>
       {items.map(label => {
         return (
           <System.Radio key={label} value={label}>

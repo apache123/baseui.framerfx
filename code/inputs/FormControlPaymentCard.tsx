@@ -6,14 +6,21 @@ import { FormValidationPropertyControls, useFormControlValidation } from "../uti
 import { useManagedState } from "../utils/useManagedState"
 import { withHOC } from "../withHOC"
 
-const InnerFormControlPaymentCard = ({ value, placeholder, ...props }: any) => {
+const InnerFormControlPaymentCard = ({ value, placeholder, onChange: originalOnChange, ...props }: any) => {
   const [currentValue, setValue] = useManagedState<string>(value)
   const [{ positive, error }, startValidation] = useFormControlValidation()
+  const onChange = React.useCallback(e => {
+    setValue(e.target["value"])
+    if (typeof originalOnChange === 'function') {
+      originalOnChange(e.target["value"])
+    }
+  }, [originalOnChange])
+
   return (
     <FormControl {...props} positive={positive} error={error}>
       <PaymentCard
         value={currentValue}
-        onChange={e => setValue(e.target["value"])}
+        onChange={onChange}
         onBlur={() => startValidation(props, currentValue)}
         placeholder={placeholder}
         disabled={!!props.disabled}
