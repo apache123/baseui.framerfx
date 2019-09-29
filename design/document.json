@@ -1683,6 +1683,7 @@
               "clearable" : false,
               "disabled" : false,
               "error" : false,
+              "globalStateKey" : "",
               "placeholder" : "placeholder",
               "positive" : false,
               "shouldUseGlobalState" : false,
@@ -1743,6 +1744,7 @@
               "clearable" : false,
               "disabled" : false,
               "error" : false,
+              "globalStateKey" : "",
               "placeholder" : "placeholder",
               "positive" : false,
               "shouldUseGlobalState" : false,
@@ -1803,6 +1805,7 @@
               "clearable" : false,
               "disabled" : false,
               "error" : true,
+              "globalStateKey" : "",
               "placeholder" : "placeholder",
               "positive" : false,
               "shouldUseGlobalState" : false,
@@ -2419,6 +2422,7 @@
               "clearable" : true,
               "disabled" : false,
               "error" : false,
+              "globalStateKey" : "",
               "placeholder" : "0000000000000000",
               "positive" : false,
               "shouldUseGlobalState" : false,
@@ -2479,6 +2483,7 @@
               "clearable" : false,
               "disabled" : false,
               "error" : false,
+              "globalStateKey" : "",
               "placeholder" : "0000000000000000",
               "positive" : false,
               "shouldUseGlobalState" : false,
@@ -2539,6 +2544,7 @@
               "clearable" : false,
               "disabled" : false,
               "error" : true,
+              "globalStateKey" : "",
               "placeholder" : "0000000000000000",
               "positive" : false,
               "shouldUseGlobalState" : false,
@@ -5493,12 +5499,16 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/DatePicker.tsx_Datepicker",
             "codeComponentProps" : {
+              "date" : "2019-09-29T22:40:01.003Z",
               "disabled" : false,
               "error" : false,
               "formatString" : "yy\/mm\/dd",
+              "fromDate" : "2019-09-29T22:40:01.003Z",
               "monthsShown" : 1,
               "placeholder" : "yyyy-mm-dd",
-              "positive" : false
+              "positive" : false,
+              "range" : false,
+              "toDate" : "2019-09-29T22:40:01.003Z"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -5551,12 +5561,16 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/DatePicker.tsx_Datepicker",
             "codeComponentProps" : {
+              "date" : "2019-09-29T22:40:01.003Z",
               "disabled" : true,
               "error" : false,
               "formatString" : "yyyy-mm-dd",
+              "fromDate" : "2019-09-29T22:40:01.003Z",
               "monthsShown" : 1,
               "placeholder" : "yyyy-mm-dd",
-              "positive" : false
+              "positive" : false,
+              "range" : false,
+              "toDate" : "2019-09-29T22:40:01.003Z"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -5609,12 +5623,16 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/DatePicker.tsx_Datepicker",
             "codeComponentProps" : {
+              "date" : "2019-09-29T22:40:01.003Z",
               "disabled" : false,
               "error" : true,
               "formatString" : "yyyy-mm-dd",
+              "fromDate" : "2019-09-29T22:40:01.003Z",
               "monthsShown" : 1,
               "placeholder" : "yyyy-mm-dd",
-              "positive" : false
+              "positive" : false,
+              "range" : false,
+              "toDate" : "2019-09-29T22:40:01.003Z"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -5667,12 +5685,16 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/DatePicker.tsx_Datepicker",
             "codeComponentProps" : {
+              "date" : "2019-09-29T22:40:01.003Z",
               "disabled" : false,
               "error" : false,
               "formatString" : "yyyy-mm-dd",
+              "fromDate" : "2019-09-29T22:40:01.003Z",
               "monthsShown" : 1,
               "placeholder" : "yyyy-mm-dd",
-              "positive" : true
+              "positive" : true,
+              "range" : false,
+              "toDate" : "2019-09-29T22:40:01.003Z"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -5799,7 +5821,6 @@
               "bodyText" : "Proin ut dui sed metus pharetra hend rerit vel non mi. Nulla ornare faucibus ex, non facilisis nisl.",
               "buttonKind" : "primary",
               "buttonText" : "Sounds great!",
-              "theme" : "inherit",
               "title" : ""
             },
             "codeOverrideEnabled" : false,
@@ -5856,7 +5877,6 @@
               "bodyText" : "Proin ut dui sed metus pharetra hend rerit vel non mi. Nulla ornare faucibus ex, non facilisis nisl.",
               "buttonKind" : "primary",
               "buttonText" : "Sounds great!",
-              "theme" : "inherit",
               "title" : ""
             },
             "codeOverrideEnabled" : false,
@@ -5914,7 +5934,6 @@
               "buttonKind" : "primary",
               "buttonText" : "Button Label",
               "headerImage" : "design\/assets\/photo-1431887773042-803ed52bed26.jpeg",
-              "theme" : "inherit",
               "title" : "Example card"
             },
             "codeOverrideEnabled" : false,
@@ -5972,7 +5991,6 @@
               "buttonKind" : "primary",
               "buttonText" : "",
               "headerImage" : "design\/assets\/photo-1431887773042-803ed52bed26.jpeg",
-              "theme" : "inherit",
               "title" : "Example card"
             },
             "codeOverrideEnabled" : false,
@@ -6030,7 +6048,6 @@
               "buttonKind" : "primary",
               "buttonText" : "",
               "headerImage" : "",
-              "theme" : "inherit",
               "thumbnail" : "design\/assets\/photo-1445359179985-460648949e10.jpeg",
               "title" : "Example card"
             },
@@ -6089,7 +6106,6 @@
               "buttonKind" : "primary",
               "buttonText" : "Button Label",
               "headerImage" : "",
-              "theme" : "inherit",
               "thumbnail" : "design\/assets\/photo-1445359179985-460648949e10.jpeg",
               "title" : "Example card"
             },
@@ -6148,7 +6164,6 @@
               "buttonKind" : "primary",
               "buttonText" : "Button Label",
               "headerImage" : "design\/assets\/photo-1431887773042-803ed52bed26.jpeg",
-              "theme" : "inherit",
               "thumbnail" : "design\/assets\/photo-1445359179985-460648949e10.jpeg",
               "title" : "Example card"
             },
@@ -6875,6 +6890,7 @@
                 "codeComponentIdentifier" : ".\/content\/Label1.tsx_Label1",
                 "codeComponentProps" : {
                   "color" : "#000000",
+                  "globalStateKey" : "",
                   "shouldUseGlobalState" : false,
                   "text" : "Label1"
                 },
