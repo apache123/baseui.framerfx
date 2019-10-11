@@ -1,26 +1,26 @@
-import * as React from "react"
-import * as System from "baseui/header-navigation"
-import { StatefulSelect as Search, TYPE } from "baseui/select"
-import { StyledLink as Link } from "baseui/link"
-import { ControlType, PropertyControls, addPropertyControls } from "framer"
-import { withHOC } from "../withHOC"
-import { filterProps } from "../utils/FilterProps"
-import { ThemePropertyControl, ItemPropertyControlDescription } from "../utils/PropertyControls"
+import * as React from 'react';
+import * as System from 'baseui/header-navigation';
+import {StatefulSelect as Search, TYPE} from 'baseui/select';
+import {StyledLink as Link} from 'baseui/link';
+import {ControlType, PropertyControls, addPropertyControls} from 'framer';
+import {withHOC} from '../withHOC';
+import {omit} from '../utils/omit';
+import {ThemePropertyControl, ItemPropertyControlDescription} from '../utils/PropertyControls';
 
 const excludedProps = [
-  "willChangeTransform",
-  "leftItems",
-  "centerItems",
-  "rightItems",
-  "searchEnabled",
-  "searchItems",
-  "searchPlaceholder",
-  "searchAlignment",
-  "searchWidth",
-  "defaultSearchItem",
-]
+  'willChangeTransform',
+  'leftItems',
+  'centerItems',
+  'rightItems',
+  'searchEnabled',
+  'searchItems',
+  'searchPlaceholder',
+  'searchAlignment',
+  'searchWidth',
+  'defaultSearchItem',
+];
 
-type valueOf<T> = T[keyof T]
+type valueOf<T> = T[keyof T];
 
 const InnerHeaderNavigation: React.SFC = props => {
   const renderItems = React.useCallback(
@@ -36,7 +36,7 @@ const InnerHeaderNavigation: React.SFC = props => {
           </System.StyledNavigationList>
           {props.searchEnabled && props.searchAlignment === alignment && (
             <System.StyledNavigationList $align={props.searchAlignment}>
-              <System.StyledNavigationItem style={{ width: `${props.searchWidth}px` }}>
+              <System.StyledNavigationItem style={{width: `${props.searchWidth}px`}}>
                 <Search
                   options={props.searchItems.map((item, index) => ({
                     id: index,
@@ -53,77 +53,77 @@ const InnerHeaderNavigation: React.SFC = props => {
                   }
                   type={TYPE.search}
                   getOptionLabel={props => (props.option && props.option.value ? props.option.value : null)}
-                  labelKey={"value"}
-                  valueKey={"id"}
+                  labelKey={'value'}
+                  valueKey={'id'}
                   placeholder={props.searchPlaceholder}
-                  maxDropdownHeight={"300px"}
+                  maxDropdownHeight={'300px'}
                 />
               </System.StyledNavigationItem>
             </System.StyledNavigationList>
           )}
         </>
-      )
+      );
     },
-    [props.searchEnabled, props.searchItems, props.searchPlaceholder, props.searchAlignment, props.defaultSearchItem]
-  )
+    [props.searchEnabled, props.searchItems, props.searchPlaceholder, props.searchAlignment, props.defaultSearchItem],
+  );
 
   return (
-    <System.HeaderNavigation {...filterProps(props, excludedProps)}>
+    <System.HeaderNavigation {...omit(props, excludedProps)}>
       {renderItems(props.leftItems, System.ALIGN.left)}
       {renderItems(props.centerItems, System.ALIGN.center)}
       {renderItems(props.rightItems, System.ALIGN.right)}
     </System.HeaderNavigation>
-  )
-}
+  );
+};
 
-export const HeaderNavigation = withHOC(InnerHeaderNavigation)
+export const HeaderNavigation = withHOC(InnerHeaderNavigation);
 
 HeaderNavigation.defaultProps = {
   width: 459,
   height: 72,
-}
+};
 
 addPropertyControls(HeaderNavigation, {
   leftItems: {
     ...ItemPropertyControlDescription,
-    title: "Left Items",
-    defaultValue: ["Uber"],
+    title: 'Left Items',
+    defaultValue: ['Uber'],
   },
   centerItems: {
     ...ItemPropertyControlDescription,
-    title: "Center Items",
+    title: 'Center Items',
   },
   rightItems: {
     ...ItemPropertyControlDescription,
-    title: "Right Items",
+    title: 'Right Items',
   },
   searchEnabled: {
     type: ControlType.Boolean,
-    title: "Search Enabled",
+    title: 'Search Enabled',
     defaultValue: false,
   },
   searchItems: {
     ...ItemPropertyControlDescription,
-    title: "Search Items",
-    defaultValue: ["First Item", "Second Item"],
+    title: 'Search Items',
+    defaultValue: ['First Item', 'Second Item'],
     hidden: props => !props.searchEnabled,
   },
   searchPlaceholder: {
     type: ControlType.String,
-    title: "Search Placeholder",
-    defaultValue: "Search for something...",
+    title: 'Search Placeholder',
+    defaultValue: 'Search for something...',
     hidden: props => !props.searchEnabled,
   },
   searchAlignment: {
-    title: "Search Alignment",
+    title: 'Search Alignment',
     type: ControlType.SegmentedEnum,
-    defaultValue: "flex-end",
-    options: ["flex-start", "center", "flex-end"],
-    optionTitles: ["Left", "Center", "Right"],
+    defaultValue: 'flex-end',
+    options: ['flex-start', 'center', 'flex-end'],
+    optionTitles: ['Left', 'Center', 'Right'],
     hidden: props => !props.searchEnabled,
   },
   searchWidth: {
-    title: "Search Field Width",
+    title: 'Search Field Width',
     type: ControlType.Number,
     defaultValue: 200,
     min: 0,
@@ -132,8 +132,8 @@ addPropertyControls(HeaderNavigation, {
     hidden: props => !props.searchEnabled,
   },
   defaultSearchItem: {
-    title: "Search Item",
+    title: 'Search Item',
     type: ControlType.String,
     hidden: props => !props.searchEnabled,
   },
-})
+});

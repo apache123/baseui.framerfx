@@ -1,36 +1,36 @@
-import * as React from "react"
-import * as System from "baseui/progress-steps"
-import { ControlType, PropertyControls, addPropertyControls } from "framer"
-import { controls, merge } from "../generated/ProgressSteps"
-import { withHOC } from "../withHOC"
-import { ThemePropertyControl } from "../utils/PropertyControls"
-import { filterProps } from "../utils/FilterProps"
+import * as React from 'react';
+import * as System from 'baseui/progress-steps';
+import {ControlType, PropertyControls, addPropertyControls} from 'framer';
+import {controls, merge} from '../generated/ProgressSteps';
+import {withHOC} from '../withHOC';
+import {ThemePropertyControl} from '../utils/PropertyControls';
+import {omit} from '../utils/omit';
 
 const InnerProgressSteps: React.SFC = props => {
   return (
-    <System.ProgressSteps {...filterProps(props, ["current"])} current={props.current - 1}>
+    <System.ProgressSteps {...omit(props, ['current'])} current={props.current - 1}>
       {props.items.map((item, index) => (
         <System.Step key={index} title={item} />
       ))}
     </System.ProgressSteps>
-  )
-}
+  );
+};
 
-export const ProgressSteps = withHOC(InnerProgressSteps)
+export const ProgressSteps = withHOC(InnerProgressSteps);
 
 ProgressSteps.defaultProps = {
   width: 105,
   height: 107,
-}
+};
 
 addPropertyControls(ProgressSteps, {
   items: {
-    title: "Items",
+    title: 'Items',
     type: ControlType.Array,
-    defaultValue: ["Item 1", "Item 2"],
+    defaultValue: ['Item 1', 'Item 2'],
     propertyControl: {
       type: ControlType.String,
-      defaultValue: "Item",
+      defaultValue: 'Item',
     },
   },
   current: merge(controls.current, {
@@ -39,4 +39,4 @@ addPropertyControls(ProgressSteps, {
     step: 1,
     displayStepper: true,
   }),
-})
+});
