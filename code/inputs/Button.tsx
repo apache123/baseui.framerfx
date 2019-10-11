@@ -10,14 +10,14 @@ import {isModal} from '../surfaces/Modal';
 import {pick} from '../utils/pick';
 
 const InnerButton: React.SFC<any> = ({
+  willChangeTransform: _,
   __slotKeys: __,
+  children: targetModal,
   containsIcon,
   icon,
   iconLocation,
   iconSize,
   text,
-  willChangeTransform: _,
-  targetModal,
   ...props
 }) => {
   let modalContent;
@@ -127,7 +127,7 @@ export const ButtonPropertyControls: PropertyControls = {
     defaultValue: 'left',
     hidden: props => !props.containsIcon,
   },
-  targetModal: {
+  children: {
     type: ControlType.ComponentInstance,
     title: 'Opens Modal',
   },

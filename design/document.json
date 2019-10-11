@@ -7789,6 +7789,13 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/Button.tsx_Button",
             "codeComponentProps" : {
+              "children" : [
+                {
+                  "enabled" : true,
+                  "type" : "componentinstance",
+                  "value" : "k_e_qInSa"
+                }
+              ],
               "containsIcon" : false,
               "disabled" : false,
               "icon" : "none",
@@ -7799,13 +7806,6 @@
               "kind" : "primary",
               "shape" : "default",
               "size" : "default",
-              "targetModal" : [
-                {
-                  "enabled" : true,
-                  "type" : "componentinstance",
-                  "value" : "k_e_qInSa"
-                }
-              ],
               "text" : "Open Modal"
             },
             "codeOverrideEnabled" : false,
