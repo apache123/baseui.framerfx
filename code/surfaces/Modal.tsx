@@ -80,7 +80,6 @@ addPropertyControls(Modal, {
   animate: merge(controls.animate, {defaultValue: true}),
   autofocus: merge(controls.autofocus, {}),
   closeable: merge(controls.closeable, {defaultValue: true}),
-  isOpen: merge(controls.isOpen, {defaultValue: true}),
   role: merge(controls.role, {}),
   size: merge(controls.size, {}),
   actions: {
