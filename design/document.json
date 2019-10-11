@@ -8252,7 +8252,6 @@
             }
           ],
           "closeable" : true,
-          "isOpen" : true,
           "role" : "dialog",
           "size" : "default",
           "title" : "Title"
