@@ -1,41 +1,92 @@
-import * as System from 'baseui/input';
-import {addPropertyControls, ControlType} from 'framer';
+import {FormControl, FormControlProps} from 'baseui/form-control';
+import {BaseInput} from 'baseui/input';
+import {addPropertyControls} from 'framer';
 import * as React from 'react';
-import {compose} from '../utils/compose';
-import {controls, merge} from '../generated/Input';
-import {UseGlobalStatePropertyControls} from '../utils/PropertyControls';
-import {withManagedState} from '../utils/stateManagement/withManagedState';
+import {
+  useFormControlValidation,
+  FormControlPropertyControls,
+  FormValidationPropertyControls,
+  CommonInputPropertyControls,
+} from '../utils/PropertyControls';
+import {useManagedState} from '../utils/useManagedState';
 import {withHOC} from '../withHOC';
 
-const InnerInput: React.SFC<any> = ({onChange, ...props}) => {
-  const onValueChange = React.useCallback(e => onChange(e.target.value), [onChange]);
-  return <System.Input onChange={onValueChange} {...props} />;
+const InnerFormControlInput = ({
+  value: initialValue,
+  placeholder,
+  onChange: originalOnChange,
+  onBlur: originalOnBlur,
+  disabled,
+  showLabel,
+  label,
+  showCaption,
+  caption,
+  inputState,
+  ...props
+}: any) => {
+  const [value, setValue] = useManagedState<string>(initialValue);
+  const [validationResult, startValidation] = useFormControlValidation();
+
+  const isValidationEnabled = props.formValidationType !== 'none';
+
+  const formControlProps: Partial<FormControlProps> = {
+    disabled,
+    label: showLabel ? label : null,
+  };
+
+  if (showCaption && isValidationEnabled) {
+    formControlProps.caption = caption;
+    formControlProps.error = validationResult.error;
+    formControlProps.positive = validationResult.positive;
+  } else if (showCaption) {
+    formControlProps.caption = caption;
+    formControlProps.error = inputState === 'error' ? props.errorMessage : null;
+    formControlProps.positive = inputState === 'positive' ? props.positiveMessage : null;
+  }
+
+  const onChange = React.useCallback(
+    e => {
+      setValue(e.target['value']);
+      if (typeof originalOnChange === 'function') {
+        originalOnChange(e);
+      }
+    },
+    [originalOnChange],
+  );
+
+  const validateOnBlur = React.useCallback(
+    e => {
+      startValidation(props, value);
+      if (typeof originalOnBlur === 'function') {
+        originalOnBlur(e);
+      }
+    },
+    [originalOnBlur],
+  );
+
+  return (
+    <FormControl {...formControlProps}>
+      <BaseInput
+        value={value}
+        placeholder={placeholder}
+        onChange={onChange}
+        onBlur={isValidationEnabled ? validateOnBlur : null}
+        positive={isValidationEnabled ? !!validationResult.positive : inputState === 'positive'}
+        error={isValidationEnabled ? !!validationResult.error : inputState === 'error'}
+      />
+    </FormControl>
+  );
 };
 
-export const Input = compose(
-  withHOC,
-  withManagedState,
-)(InnerInput);
+export const Input = withHOC(InnerFormControlInput);
 
 Input.defaultProps = {
-  width: 150,
-  height: 50,
-  valuePropName: 'value',
+  width: 400,
+  height: 120,
 };
 
 addPropertyControls(Input, {
-  clearable: merge(controls.clearable, {defaultValue: true}),
-  disabled: merge(controls.disabled, {}),
-  error: merge(controls.error, {}),
-  positive: merge(controls.positive, {}),
-  placeholder: merge(controls.placeholder, {defaultValue: 'Placeholder'}),
-  value: merge(controls.value, {}),
-  type: {
-    type: ControlType.Enum,
-    options: ['text', 'password', 'number'],
-    optionTitles: ['Text', 'Password', 'Number'],
-    defaultValue: 'text',
-  },
-  size: merge(controls.size, {}),
-  ...UseGlobalStatePropertyControls,
+  ...CommonInputPropertyControls,
+  ...FormControlPropertyControls,
+  ...FormValidationPropertyControls,
 });

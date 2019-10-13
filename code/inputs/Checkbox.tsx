@@ -1,33 +1,36 @@
-import * as React from "react"
-import * as System from "baseui/checkbox"
-import { addPropertyControls } from "framer"
-import { controls, merge } from "../generated/Checkbox"
-import { withHOC } from "../withHOC"
-import { useManagedState } from "../utils/useManagedState"
-import { LabelPropertyControl } from "../utils/PropertyControls"
+import * as React from 'react';
+import * as System from 'baseui/checkbox';
+import {addPropertyControls} from 'framer';
+import {controls, merge} from '../generated/Checkbox';
+import {withHOC} from '../withHOC';
+import {useManagedState} from '../utils/useManagedState';
+import {LabelPropertyControl} from '../utils/PropertyControls';
 
-const InnerCheckbox: React.SFC<any> = ({ checked, label, onChange: originalOnChange, ...props }) => {
-  const [currentlyChecked, setChecked] = useManagedState(checked)
-  const onChange = React.useCallback(e => {
-    setChecked(e.target["checked"])
-    if (typeof originalOnChange === 'function') {
-      originalOnChange(e.target["checked"])
-    }
-  }, [originalOnChange])
+const InnerCheckbox: React.SFC<any> = ({checked: initialChecked, label, onChange: originalOnChange, ...props}) => {
+  const [checked, setChecked] = useManagedState(initialChecked);
+  const onChange = React.useCallback(
+    e => {
+      setChecked(e.target['checked']);
+      if (typeof originalOnChange === 'function') {
+        originalOnChange(e);
+      }
+    },
+    [originalOnChange],
+  );
 
   return (
-    <System.Checkbox checked={currentlyChecked} onChange={onChange} {...props}>
+    <System.Checkbox checked={checked} onChange={onChange} {...props}>
       {label}
     </System.Checkbox>
-  )
-}
+  );
+};
 
-export const Checkbox = withHOC(InnerCheckbox)
+export const Checkbox = withHOC(InnerCheckbox);
 
 Checkbox.defaultProps = {
   width: 125,
   height: 25,
-}
+};
 
 addPropertyControls(Checkbox, {
   checked: merge(controls.checked, {}),
@@ -38,4 +41,4 @@ addPropertyControls(Checkbox, {
   labelPlacement: merge(controls.labelPlacement, {}),
   checkmarkType: merge(controls.checkmarkType, {}),
   ...LabelPropertyControl,
-})
+});

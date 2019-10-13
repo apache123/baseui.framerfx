@@ -1,40 +1,79 @@
-import * as System from "baseui/datepicker"
-import { addPropertyControls, ControlType } from "framer"
-import * as React from "react"
-import { controls, merge } from "../generated/Datepicker"
-import { useManagedState } from "../utils/useManagedState"
-import { withHOC } from "../withHOC"
+import * as React from 'react';
+import {FormControl, FormControlProps} from 'baseui/form-control';
+import * as System from 'baseui/datepicker';
+import {addPropertyControls, ControlType} from 'framer';
+import {controls, merge} from '../generated/Datepicker';
+import {useManagedState} from '../utils/useManagedState';
+import {withHOC} from '../withHOC';
+import {CommonInputPropertyControls, FormControlPropertyControls} from '../utils/PropertyControls';
 
 function parseDateString(date) {
-  const parsedDate = new Date(date)
+  const parsedDate = new Date(date);
   if (isNaN(parsedDate.valueOf())) {
-    return null
+    return null;
   }
-  return parsedDate
+  return parsedDate;
 }
 
-const InnerDatepicker: React.SFC<any> = ({ date, fromDate, toDate, ...props }) => {
-  const [singleDate, setSingleDate] = useManagedState(parseDateString(date))
-  const [rangeDate, setRangeDate] = useManagedState([parseDateString(fromDate), parseDateString(toDate)])
-  const onChange = React.useCallback(({ date }) => {
+const InnerDatepicker: React.SFC<any> = ({
+  date,
+  fromDate,
+  toDate,
+  onChange: originalOnChange,
+  disabled,
+  showLabel,
+  label,
+  showCaption,
+  caption,
+  inputState,
+  ...props
+}) => {
+  const [singleDate, setSingleDate] = useManagedState(parseDateString(date));
+  const [rangeDate, setRangeDate] = useManagedState([parseDateString(fromDate), parseDateString(toDate)]);
+  const onChange = React.useCallback(e => {
     if (props.range) {
-      setRangeDate(date)
+      setRangeDate(e.date);
     } else {
-      setSingleDate(date)
+      setSingleDate(e.date);
     }
-  }, [])
+    if (typeof originalOnChange === 'function') {
+      originalOnChange(e);
+    }
+  }, []);
 
-  return <System.Datepicker {...props} value={props.range ? rangeDate : singleDate} onChange={onChange} />
-}
+  const formControlProps: Partial<FormControlProps> = {
+    disabled,
+    label: showLabel ? label : null,
+  };
 
-export const Datepicker = withHOC(InnerDatepicker)
+  if (showCaption) {
+    formControlProps.caption = caption;
+    formControlProps.error = inputState === 'error' ? props.errorMessage : null;
+    formControlProps.positive = inputState === 'positive' ? props.positiveMessage : null;
+  }
 
-const defaultFormat = "yyyy-MM-dd"
+  return (
+    <FormControl {...formControlProps}>
+      <System.Datepicker
+        disabled={disabled}
+        value={props.range ? rangeDate : singleDate}
+        onChange={onChange}
+        positive={inputState === 'positive'}
+        error={inputState === 'error'}
+        {...props}
+      />
+    </FormControl>
+  );
+};
+
+export const Datepicker = withHOC(InnerDatepicker);
+
+const defaultFormat = 'yyyy-MM-dd';
 Datepicker.defaultProps = {
   width: 150,
-  height: 50,
+  height: 120,
   formatString: defaultFormat,
-}
+};
 
 addPropertyControls(Datepicker, {
   monthsShown: merge(controls.monthsShown, {
@@ -44,33 +83,33 @@ addPropertyControls(Datepicker, {
     displayStepper: true,
   }),
   disabled: merge(controls.disabled, {}),
-  error: merge(controls.error, {}),
-  positive: merge(controls.positive, {}),
   placeholder: merge(controls.placeholder, {
     defaultValue: defaultFormat,
   }),
-  formatString: merge(controls.formatString, { defaultValue: defaultFormat }),
+  formatString: merge(controls.formatString, {defaultValue: defaultFormat}),
   date: {
     type: ControlType.String,
-    title: "Date",
+    title: 'Date',
     defaultValue: new Date().toISOString(),
     hidden: props => props.range,
   },
   fromDate: {
     type: ControlType.String,
-    title: "From Date",
+    title: 'From Date',
     defaultValue: new Date().toISOString(),
     hidden: props => !props.range,
   },
   toDate: {
     type: ControlType.String,
-    title: "To Date",
+    title: 'To Date',
     defaultValue: new Date().toISOString(),
     hidden: props => !props.range,
   },
   range: {
     type: ControlType.Boolean,
-    title: "Range",
+    title: 'Range',
     defaultValue: false,
   },
-})
+  inputState: CommonInputPropertyControls.inputState,
+  ...FormControlPropertyControls,
+});

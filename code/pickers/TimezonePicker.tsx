@@ -1,26 +1,70 @@
-import * as System from "baseui/datepicker"
-import { addPropertyControls } from "framer"
-import * as React from "react"
-import { controls, merge } from "../generated/TimezonePicker"
-import { withHOC } from "../withHOC"
-import { useManagedState } from "../utils/useManagedState"
+import * as React from 'react';
+import {FormControl, FormControlProps} from 'baseui/form-control';
+import * as System from 'baseui/datepicker';
+import {addPropertyControls} from 'framer';
+import {controls, merge} from '../generated/TimezonePicker';
+import {withHOC} from '../withHOC';
+import {useManagedState} from '../utils/useManagedState';
+import {CommonInputPropertyControls, FormControlPropertyControls} from '../utils/PropertyControls';
 
-const InnerTimezonePicker: React.SFC<any> = ({ value, ...props }) => {
-  const [currentValue, setValue] = useManagedState(value)
+const InnerTimezonePicker: React.SFC<any> = ({
+  value: initialValue,
+  onChange: originalOnChange,
+  disabled,
+  showLabel,
+  label,
+  showCaption,
+  caption,
+  inputState,
+  ...props
+}) => {
+  const [value, setValue] = useManagedState(initialValue);
 
-  return <System.TimezonePicker value={currentValue} onChange={e => setValue(e.id)} {...props} />
-}
+  const onChange = React.useCallback(
+    e => {
+      setValue(e.id);
+      if (typeof originalOnChange === 'function') {
+        originalOnChange(e);
+      }
+    },
+    [originalOnChange],
+  );
 
-export const TimezonePicker = withHOC(InnerTimezonePicker)
+  const formControlProps: Partial<FormControlProps> = {
+    disabled,
+    label: showLabel ? label : null,
+  };
+
+  if (showCaption) {
+    formControlProps.caption = caption;
+    formControlProps.error = inputState === 'error' ? props.errorMessage : null;
+    formControlProps.positive = inputState === 'positive' ? props.positiveMessage : null;
+  }
+
+  return (
+    <FormControl {...formControlProps}>
+      <System.TimezonePicker
+        disabled={disabled}
+        value={value}
+        onChange={onChange}
+        positive={inputState === 'positive'}
+        error={inputState === 'error'}
+        {...props}
+      />
+    </FormControl>
+  );
+};
+
+export const TimezonePicker = withHOC(InnerTimezonePicker);
 
 TimezonePicker.defaultProps = {
   width: 350,
-  height: 50,
-}
+  height: 120,
+};
 
 addPropertyControls(TimezonePicker, {
   disabled: merge(controls.disabled, {}),
-  positive: merge(controls.positive, {}),
-  error: merge(controls.error, {}),
-  value: merge(controls.value, { defaultValue: "Pacific/Honolulu" }),
-})
+  value: merge(controls.value, {defaultValue: 'Pacific/Honolulu'}),
+  inputState: CommonInputPropertyControls.inputState,
+  ...FormControlPropertyControls,
+});

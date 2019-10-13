@@ -1,47 +1,47 @@
-import { ControlType, PropertyControls, ControlDescription } from "framer"
-import * as React from "react"
+import {ControlType, PropertyControls, ControlDescription} from 'framer';
+import * as React from 'react';
 
 export const ThemePropertyControl: PropertyControls = {
   theme: {
-    title: "Theme",
-    options: ["dark", "light", "inherit"],
-    optionTitles: ["Dark", "Light", "Inherit"],
-    defaultValue: "inherit",
+    title: 'Theme',
+    options: ['dark', 'light', 'inherit'],
+    optionTitles: ['Dark', 'Light', 'Inherit'],
+    defaultValue: 'inherit',
     type: ControlType.Enum,
   },
-}
+};
 
 export const LabelPropertyControl: PropertyControls = {
   label: {
-    title: "Label",
+    title: 'Label',
     type: ControlType.String,
-    defaultValue: "Default Label",
+    defaultValue: 'Default Label',
   },
-}
+};
 
 export const TextPropertyControl: PropertyControls = {
   text: {
-    title: "Text",
+    title: 'Text',
     type: ControlType.String,
-    defaultValue: "Default Text",
+    defaultValue: 'Default Text',
   },
-}
+};
 
 export const ColorPropertyControl: PropertyControls = {
   color: {
-    title: "Color",
+    title: 'Color',
     type: ControlType.Color,
-    defaultValue: "#000000",
+    defaultValue: '#000000',
   },
-}
+};
 
 export const ItemPropertyControlDescription: ControlDescription = {
-  title: "Items",
+  title: 'Items',
   type: ControlType.Array,
   propertyControl: {
     type: ControlType.String,
   },
-}
+};
 
 /**
  * Adds controls for global state management, to be used in conjunction with the `withManagedState` HoC.
@@ -50,145 +50,176 @@ export const ItemPropertyControlDescription: ControlDescription = {
  */
 export const UseGlobalStatePropertyControls: PropertyControls = {
   shouldUseGlobalState: {
-    title: "Global Variable",
+    title: 'Global Variable',
     type: ControlType.Boolean,
     defaultValue: false,
   },
   globalStateKey: {
-    title: "Variable",
+    title: 'Variable',
     type: ControlType.String,
     hidden: props => !props.shouldUseGlobalState,
   },
-}
+};
+
+export const CommonInputPropertyControls: PropertyControls = {
+  disabled: {type: ControlType.Boolean, title: 'Disabled', defaultValue: false},
+  placeholder: {type: ControlType.String, title: 'Placeholder', defaultValue: 'Placeholder'},
+  value: {type: ControlType.String, title: 'Value', defaultValue: ''},
+  clearable: {
+    title: 'Clearable',
+    defaultValue: false,
+    type: ControlType.Boolean,
+  },
+  size: {
+    title: 'Size',
+    options: ['default', 'compact', 'large'],
+    optionTitles: ['Default', 'Compact', 'Large'],
+    defaultValue: 'default',
+    type: ControlType.Enum,
+  },
+  inputState: {
+    title: 'State',
+    type: ControlType.Enum,
+    options: ['default', 'error', 'positive'],
+    optionTitles: ['Default', 'Error', 'Positive'],
+    hidden: props => ('formValidationType' in props ? props.formValidationType !== 'none' : false),
+  },
+};
 
 /**
  * Adds controls for form validation.
  *
  * These controls are meant to be used in conjunction with the `useFormFieldValidation` function.
  */
-export const FormValidationPropertyControls: PropertyControls = {
-  disabled: { type: ControlType.Boolean, defaultValue: false },
-  label: { type: ControlType.String, defaultValue: "Label" },
+export const FormControlPropertyControls: PropertyControls = {
+  showLabel: {type: ControlType.Boolean, title: 'Label', enabledTitle: 'Show', disabledTitle: 'Hide'},
+  label: {type: ControlType.String, title: 'Label Text', defaultValue: 'Label', hidden: props => !props.showLabel},
+
+  showCaption: {type: ControlType.Boolean, title: 'Caption', enabledTitle: 'Show', disabledTitle: 'Hide'},
   caption: {
     type: ControlType.String,
-    defaultValue: "Captions are great for adding additional information to a form control.",
+    title: 'Caption Text',
+    defaultValue: 'Caption',
+    hidden: props => !props.showCaption,
   },
-  error: {
+  errorMessage: {
     type: ControlType.String,
-    defaultValue: "This message will show if validation fails.",
+    title: 'Error Caption',
+    defaultValue: 'Error caption',
+    hidden: props => !props.showCaption,
   },
-  positive: {
+  positiveMessage: {
     type: ControlType.String,
-    defaultValue: "This message will show if validation succeeds.",
+    title: 'Positive Caption',
+    defaultValue: 'Positive caption',
+    hidden: props => !props.showCaption,
   },
-  placeholder: { type: ControlType.String, defaultValue: "placeholder" },
-  value: { type: ControlType.String, defaultValue: "" },
+};
+
+export const FormValidationPropertyControls: PropertyControls = {
   formValidationType: {
-    title: "Validation Type",
+    title: 'Validation Type',
     type: ControlType.Enum,
-    options: ["number", "string", "regex", "any"],
-    optionTitles: ["Number", "String", "RegExp", "No Validation"],
-    defaultValue: "any",
+    options: ['none', 'number', 'string', 'regex'],
+    optionTitles: ['No Validation', 'Number', 'String', 'RegExp'],
+    defaultValue: 'none',
   },
 
   // Regex Fields
   formValidationTypeRegex: {
     type: ControlType.String,
-    title: "RegEx",
-    defaultValue: ".+",
-    hidden: props => props.formValidationType !== "regex",
+    title: 'RegEx',
+    defaultValue: '.+',
+    hidden: props => props.formValidationType !== 'regex',
   },
 
   // Number Fields
   formValidationTypeNumberMin: {
     type: ControlType.Number,
-    title: "Number Min",
-    hidden: props => props.formValidationType !== "number",
+    title: 'Min Number',
+    hidden: props => props.formValidationType !== 'number',
   },
   formValidationTypeNumberMax: {
     type: ControlType.Number,
-    title: "Number Max",
-    hidden: props => props.formValidationType !== "number",
+    title: 'Max Number',
+    hidden: props => props.formValidationType !== 'number',
   },
 
   // String Fields
   formValidationTypeStringMinLength: {
     type: ControlType.Number,
-    title: "Min Length",
-    hidden: props => props.formValidationType !== "string",
+    title: 'Min Length',
+    hidden: props => props.formValidationType !== 'string',
   },
   formValidationTypeStringMaxLength: {
     type: ControlType.Number,
-    title: "Max Length",
-    hidden: props => props.formValidationType !== "string",
+    title: 'Max Length',
+    hidden: props => props.formValidationType !== 'string',
   },
-}
+};
 
 export type FormValidationProps =
-  | { formValidationType: "any"; positive?: string; error?: string }
-  | { formValidationType: "regex"; formValidationTypeRegex: string; positive?: string; error?: string }
+  | {formValidationType: 'any'; positiveMessage?: string; errorMessage?: string}
+  | {formValidationType: 'regex'; formValidationTypeRegex: string; positiveMessage?: string; errorMessage?: string}
   | {
-      formValidationType: "number"
-      formValidationTypeNumberMax: number
-      formValidationTypeNumberMin: number
-      positive?: string
-      error?: string
+      formValidationType: 'number';
+      formValidationTypeNumberMax: number;
+      formValidationTypeNumberMin: number;
+      positiveMessage?: string;
+      errorMessage?: string;
     }
   | {
-      formValidationType: "string"
-      formValidationTypeStringMinLength: number
-      formValidationTypeStringMaxLength: number
-      positive?: string
-      error?: string
-    }
+      formValidationType: 'string';
+      formValidationTypeStringMinLength: number;
+      formValidationTypeStringMaxLength: number;
+      positiveMessage?: string;
+      errorMessage?: string;
+    };
 
 function createValidator(props: FormValidationProps) {
   return (value: any) => {
-    if (props.formValidationType === "any") {
-      return true
+    if (props.formValidationType === 'regex') {
+      return new RegExp(props.formValidationTypeRegex).test(value);
     }
-    if (props.formValidationType === "regex") {
-      return new RegExp(props.formValidationTypeRegex).test(value)
+    if (props.formValidationType === 'number') {
+      const number = Number(value);
+      return props.formValidationTypeNumberMax >= number && number >= props.formValidationTypeNumberMin;
     }
-    if (props.formValidationType === "number") {
-      const number = Number(value)
-      return props.formValidationTypeNumberMax >= number && number >= props.formValidationTypeNumberMin
-    }
-    if (props.formValidationType === "string") {
-      const string = String(value || "")
+    if (props.formValidationType === 'string') {
+      const string = String(value || '');
       return (
         props.formValidationTypeStringMinLength >= string.length &&
         string.length <= props.formValidationTypeStringMaxLength
-      )
+      );
     }
-  }
+  };
 }
 
 type ValidationResult = {
-  error?: string
-  positive?: string
-}
+  error?: string;
+  positive?: string;
+};
 
-type StartValidationFunction<T> = (props: T, value: any) => void
+type StartValidationFunction<T> = (props: T, value: any) => void;
 
 export function useFormControlValidation<T extends FormValidationProps>(): [
   ValidationResult,
-  StartValidationFunction<T>
+  StartValidationFunction<T>,
 ] {
-  const [validationResult, setValidationResult] = React.useState<ValidationResult>({})
+  const [validationResult, setValidationResult] = React.useState<ValidationResult>({});
 
   function startValidation(props: T, value: any) {
-    const validator = createValidator(props)
+    const validator = createValidator(props);
     const validationResult = validator(value)
       ? {
-          positive: props.positive,
+          positive: props.positiveMessage,
         }
       : {
-          error: props.error,
-        }
+          error: props.errorMessage,
+        };
 
-    setValidationResult(validationResult)
+    setValidationResult(validationResult);
   }
 
-  return [validationResult, startValidation]
+  return [validationResult, startValidation];
 }

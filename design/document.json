@@ -704,7 +704,7 @@
                   "disabled" : false,
                   "isError" : false,
                   "isIndeterminate" : false,
-                  "label" : "Unchecked",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -764,7 +764,7 @@
                   "disabled" : false,
                   "isError" : false,
                   "isIndeterminate" : false,
-                  "label" : "Checked",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -824,7 +824,7 @@
                   "disabled" : false,
                   "isError" : true,
                   "isIndeterminate" : false,
-                  "label" : "Checked with Error",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -884,7 +884,7 @@
                   "disabled" : false,
                   "isError" : true,
                   "isIndeterminate" : false,
-                  "label" : "Unchecked with Error",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -944,7 +944,7 @@
                   "disabled" : false,
                   "isError" : true,
                   "isIndeterminate" : true,
-                  "label" : "Indeterminate",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -1073,7 +1073,7 @@
                   "disabled" : false,
                   "isError" : false,
                   "isIndeterminate" : false,
-                  "label" : "Untoggled",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -1133,7 +1133,7 @@
                   "disabled" : false,
                   "isError" : false,
                   "isIndeterminate" : false,
-                  "label" : "Toggled",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -1193,7 +1193,7 @@
                   "disabled" : false,
                   "isError" : true,
                   "isIndeterminate" : false,
-                  "label" : "Toggled with Error",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -1253,7 +1253,7 @@
                   "disabled" : true,
                   "isError" : true,
                   "isIndeterminate" : false,
-                  "label" : "Disabled",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -1313,7 +1313,7 @@
                   "disabled" : true,
                   "isError" : true,
                   "isIndeterminate" : false,
-                  "label" : "Checked and Disabled",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -1442,7 +1442,7 @@
                   "disabled" : false,
                   "isError" : false,
                   "isIndeterminate" : false,
-                  "label" : "A very long label that can span multiple lines, but only if it needs to!",
+                  "label" : "Default Label",
                   "labelPlacement" : "right",
                   "required" : false
                 },
@@ -1502,7 +1502,7 @@
                   "disabled" : false,
                   "isError" : false,
                   "isIndeterminate" : false,
-                  "label" : "You can also move the label placement",
+                  "label" : "Default Label",
                   "labelPlacement" : "bottom",
                   "required" : false
                 },
@@ -1680,15 +1680,23 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/Input.tsx_Input",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "clearable" : false,
               "disabled" : false,
-              "error" : false,
-              "globalStateKey" : "",
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
               "placeholder" : "placeholder",
-              "positive" : false,
-              "shouldUseGlobalState" : false,
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "size" : "default",
-              "type" : "text",
               "value" : ""
             },
             "codeOverrideEnabled" : false,
@@ -1742,15 +1750,23 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/Input.tsx_Input",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "clearable" : false,
               "disabled" : false,
-              "error" : false,
-              "globalStateKey" : "",
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
               "placeholder" : "placeholder",
-              "positive" : false,
-              "shouldUseGlobalState" : false,
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "size" : "default",
-              "type" : "text",
               "value" : ""
             },
             "codeOverrideEnabled" : false,
@@ -1804,15 +1820,23 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/Input.tsx_Input",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "clearable" : false,
               "disabled" : false,
-              "error" : true,
-              "globalStateKey" : "",
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
               "placeholder" : "placeholder",
-              "positive" : false,
-              "shouldUseGlobalState" : false,
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "size" : "default",
-              "type" : "text",
               "value" : ""
             },
             "codeOverrideEnabled" : false,
@@ -2422,13 +2446,22 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/PaymentCard.tsx_PaymentCard",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "clearable" : true,
               "disabled" : false,
-              "error" : false,
-              "globalStateKey" : "",
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
               "placeholder" : "0000000000000000",
-              "positive" : false,
-              "shouldUseGlobalState" : false,
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "size" : "default",
               "value" : "5400000000000000"
             },
@@ -2483,13 +2516,22 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/PaymentCard.tsx_PaymentCard",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "clearable" : false,
               "disabled" : false,
-              "error" : false,
-              "globalStateKey" : "",
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
               "placeholder" : "0000000000000000",
-              "positive" : false,
-              "shouldUseGlobalState" : false,
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "size" : "default",
               "value" : "5400000000000000"
             },
@@ -2544,13 +2586,22 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/PaymentCard.tsx_PaymentCard",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "clearable" : false,
               "disabled" : false,
-              "error" : true,
-              "globalStateKey" : "",
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
               "placeholder" : "0000000000000000",
-              "positive" : false,
-              "shouldUseGlobalState" : false,
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "size" : "default",
               "value" : "5400000000000000"
             },
@@ -2674,8 +2725,25 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/PhoneInput.tsx_PhoneInput",
             "codeComponentProps" : {
-              "country" : "US",
-              "text" : "650413182"
+              "caption" : "Caption",
+              "clearable" : false,
+              "disabled" : false,
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
+              "mask" : "(999) 999-999-9999",
+              "placeholder" : "Placeholder",
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
+              "size" : "default",
+              "value" : ""
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -2728,8 +2796,25 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/PhoneInput.tsx_PhoneInput",
             "codeComponentProps" : {
-              "country" : "US",
-              "text" : "650413182"
+              "caption" : "Caption",
+              "clearable" : false,
+              "disabled" : false,
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
+              "mask" : "(999) 999-999-9999",
+              "placeholder" : "Placeholder",
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
+              "size" : "default",
+              "value" : ""
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -2782,8 +2867,25 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/PhoneInput.tsx_PhoneInput",
             "codeComponentProps" : {
-              "country" : "US",
-              "text" : "650413182"
+              "caption" : "Caption",
+              "clearable" : false,
+              "disabled" : false,
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
+              "mask" : "(999) 999-999-9999",
+              "placeholder" : "Placeholder",
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
+              "size" : "default",
+              "value" : ""
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -2905,13 +3007,19 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/Textarea.tsx_Textarea",
             "codeComponentProps" : {
+              "caption" : "Caption",
+              "clearable" : false,
               "disabled" : false,
-              "error" : false,
-              "placeholder" : "Placeholder!",
-              "positive" : false,
+              "errorMessage" : "Error caption",
+              "inputState" : "default",
+              "label" : "Label",
+              "placeholder" : "Placeholder",
+              "positiveMessage" : "Positive caption",
               "rows" : 5,
+              "showCaption" : true,
+              "showLabel" : true,
               "size" : "default",
-              "value" : " popped a stash and there was a merge conflict. Unlike the question that is listed as a duplicate, I already had some uncommitted changes in the directory which I wanted to keep. I don't just want to make the merge conflict disappear, but also to get my directory back to the state it was before the pop."
+              "value" : ""
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -2964,13 +3072,19 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/Textarea.tsx_Textarea",
             "codeComponentProps" : {
+              "caption" : "Caption",
+              "clearable" : false,
               "disabled" : false,
-              "error" : false,
-              "placeholder" : "Placeholder!",
-              "positive" : false,
+              "errorMessage" : "Error caption",
+              "inputState" : "default",
+              "label" : "Label",
+              "placeholder" : "Placeholder",
+              "positiveMessage" : "Positive caption",
               "rows" : 5,
-              "size" : "compact",
-              "value" : "this is a compact text area element and as you can see its much more compact than the regular one"
+              "showCaption" : true,
+              "showLabel" : true,
+              "size" : "default",
+              "value" : ""
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -3023,13 +3137,19 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/Textarea.tsx_Textarea",
             "codeComponentProps" : {
+              "caption" : "Caption",
+              "clearable" : false,
               "disabled" : false,
-              "error" : false,
-              "placeholder" : "Placeholder!",
-              "positive" : true,
+              "errorMessage" : "Error caption",
+              "inputState" : "default",
+              "label" : "Label",
+              "placeholder" : "Placeholder",
+              "positiveMessage" : "Positive caption",
               "rows" : 4,
-              "size" : "large",
-              "value" : "  Ok, I think I have worked out \"git stash unapply\". It's more complex than git apply --reverse because you need reverse merging action in case there was any merging done by the git stash apply."
+              "showCaption" : true,
+              "showLabel" : true,
+              "size" : "default",
+              "value" : ""
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -5036,10 +5156,16 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/TimePicker.tsx_TimePicker",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "disabled" : false,
-              "error" : false,
+              "errorMessage" : "Error caption",
               "format" : "12",
-              "positive" : false
+              "inputState" : "default",
+              "label" : "Label",
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
+              "value" : "2019-10-13T03:14:20.870Z"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -5092,10 +5218,16 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/TimePicker.tsx_TimePicker",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "disabled" : true,
-              "error" : false,
+              "errorMessage" : "Error caption",
               "format" : "24",
-              "positive" : false
+              "inputState" : "default",
+              "label" : "Label",
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
+              "value" : "2019-10-13T03:14:20.870Z"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -5148,10 +5280,16 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/TimePicker.tsx_TimePicker",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "disabled" : false,
-              "error" : false,
+              "errorMessage" : "Error caption",
               "format" : "24",
-              "positive" : true
+              "inputState" : "default",
+              "label" : "Label",
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
+              "value" : "2019-10-13T03:14:20.870Z"
             },
             "codeOverrideEnabled" : false,
             "constraintsLocked" : false,
@@ -5265,9 +5403,14 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/TimezonePicker.tsx_TimezonePicker",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "disabled" : false,
-              "error" : false,
-              "positive" : false,
+              "errorMessage" : "Error caption",
+              "inputState" : "default",
+              "label" : "Label",
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "value" : "Pacific\/Honolulu"
             },
             "codeOverrideEnabled" : false,
@@ -5321,9 +5464,14 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/TimezonePicker.tsx_TimezonePicker",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "disabled" : false,
-              "error" : true,
-              "positive" : false,
+              "errorMessage" : "Error caption",
+              "inputState" : "default",
+              "label" : "Label",
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "value" : "Pacific\/Honolulu"
             },
             "codeOverrideEnabled" : false,
@@ -5377,9 +5525,14 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/TimezonePicker.tsx_TimezonePicker",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "disabled" : false,
-              "error" : false,
-              "positive" : true,
+              "errorMessage" : "Error caption",
+              "inputState" : "default",
+              "label" : "Label",
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "value" : "Asia\/Seoul"
             },
             "codeOverrideEnabled" : false,
@@ -5502,15 +5655,20 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/DatePicker.tsx_Datepicker",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "date" : "2019-09-29T22:40:01.003Z",
               "disabled" : false,
-              "error" : false,
+              "errorMessage" : "Error caption",
               "formatString" : "yy\/mm\/dd",
               "fromDate" : "2019-09-29T22:40:01.003Z",
+              "inputState" : "default",
+              "label" : "Label",
               "monthsShown" : 1,
               "placeholder" : "yyyy-mm-dd",
-              "positive" : false,
+              "positiveMessage" : "Positive caption",
               "range" : false,
+              "showCaption" : true,
+              "showLabel" : true,
               "toDate" : "2019-09-29T22:40:01.003Z"
             },
             "codeOverrideEnabled" : false,
@@ -5564,15 +5722,20 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/DatePicker.tsx_Datepicker",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "date" : "2019-09-29T22:40:01.003Z",
               "disabled" : true,
-              "error" : false,
+              "errorMessage" : "Error caption",
               "formatString" : "yyyy-mm-dd",
               "fromDate" : "2019-09-29T22:40:01.003Z",
+              "inputState" : "default",
+              "label" : "Label",
               "monthsShown" : 1,
               "placeholder" : "yyyy-mm-dd",
-              "positive" : false,
+              "positiveMessage" : "Positive caption",
               "range" : false,
+              "showCaption" : true,
+              "showLabel" : true,
               "toDate" : "2019-09-29T22:40:01.003Z"
             },
             "codeOverrideEnabled" : false,
@@ -5626,15 +5789,20 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/DatePicker.tsx_Datepicker",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "date" : "2019-09-29T22:40:01.003Z",
               "disabled" : false,
-              "error" : true,
+              "errorMessage" : "Error caption",
               "formatString" : "yyyy-mm-dd",
               "fromDate" : "2019-09-29T22:40:01.003Z",
+              "inputState" : "default",
+              "label" : "Label",
               "monthsShown" : 1,
               "placeholder" : "yyyy-mm-dd",
-              "positive" : false,
+              "positiveMessage" : "Positive caption",
               "range" : false,
+              "showCaption" : true,
+              "showLabel" : true,
               "toDate" : "2019-09-29T22:40:01.003Z"
             },
             "codeOverrideEnabled" : false,
@@ -5688,15 +5856,20 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/pickers\/DatePicker.tsx_Datepicker",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "date" : "2019-09-29T22:40:01.003Z",
               "disabled" : false,
-              "error" : false,
+              "errorMessage" : "Error caption",
               "formatString" : "yyyy-mm-dd",
               "fromDate" : "2019-09-29T22:40:01.003Z",
+              "inputState" : "default",
+              "label" : "Label",
               "monthsShown" : 1,
               "placeholder" : "yyyy-mm-dd",
-              "positive" : true,
+              "positiveMessage" : "Positive caption",
               "range" : false,
+              "showCaption" : true,
+              "showLabel" : true,
               "toDate" : "2019-09-29T22:40:01.003Z"
             },
             "codeOverrideEnabled" : false,
@@ -6293,7 +6466,7 @@
                 "codeComponentIdentifier" : ".\/content\/H1.tsx_H1",
                 "codeComponentProps" : {
                   "color" : "#000000",
-                  "text" : "HEADING 1"
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6346,8 +6519,8 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/content\/H2.tsx_H2",
                 "codeComponentProps" : {
-                  "color" : "var(--token-a17d8d46-4daf-46ff-ab88-685587f1c257, rgb(39, 110, 241)) \/* {\"name\":\"primary\"} *\/",
-                  "text" : "HEADING 2"
+                  "color" : "#000000",
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6400,8 +6573,8 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/content\/H3.tsx_H3",
                 "codeComponentProps" : {
-                  "color" : "var(--token-b89ae129-cbe5-493a-94f3-984ee936bf11, rgb(7, 163, 90)) \/* {\"name\":\"positive\"} *\/",
-                  "text" : "HEADING 3"
+                  "color" : "#000000",
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6454,9 +6627,9 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/content\/Heading.tsx_Heading",
                 "codeComponentProps" : {
-                  "color" : "hsl(0, 0%, 0%)",
+                  "color" : "#000000",
                   "styleLevel" : 1,
-                  "text" : "Base Web [L1]"
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6509,9 +6682,9 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/content\/Heading.tsx_Heading",
                 "codeComponentProps" : {
-                  "color" : "hsl(0, 0%, 0%)",
+                  "color" : "#000000",
                   "styleLevel" : 2,
-                  "text" : "Base Web [L2]"
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6564,9 +6737,9 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/content\/Heading.tsx_Heading",
                 "codeComponentProps" : {
-                  "color" : "hsl(0, 0%, 0%)",
+                  "color" : "#000000",
                   "styleLevel" : 3,
-                  "text" : "Base Web [L3]"
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6619,9 +6792,9 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/content\/Heading.tsx_Heading",
                 "codeComponentProps" : {
-                  "color" : "hsl(0, 0%, 0%)",
+                  "color" : "#000000",
                   "styleLevel" : 4,
-                  "text" : "Base Web [L4]"
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6674,9 +6847,9 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/content\/Heading.tsx_Heading",
                 "codeComponentProps" : {
-                  "color" : "hsl(0, 0%, 0%)",
+                  "color" : "#000000",
                   "styleLevel" : 5,
-                  "text" : "Base Web [L5]"
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6729,9 +6902,9 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/content\/Heading.tsx_Heading",
                 "codeComponentProps" : {
-                  "color" : "hsl(0, 0%, 0%)",
+                  "color" : "#000000",
                   "styleLevel" : 6,
-                  "text" : "Base Web [L6]"
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6784,8 +6957,8 @@
                 "clip" : true,
                 "codeComponentIdentifier" : ".\/content\/Label2.tsx_Label2",
                 "codeComponentProps" : {
-                  "color" : "hsl(0, 0%, 0%)",
-                  "text" : "Label2"
+                  "color" : "#000000",
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6839,7 +7012,7 @@
                 "codeComponentIdentifier" : ".\/content\/Paragraph2.tsx_Paragraph2",
                 "codeComponentProps" : {
                   "color" : "#000000",
-                  "text" : "Paragraph2 - Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory."
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6895,7 +7068,7 @@
                   "color" : "#000000",
                   "globalStateKey" : "",
                   "shouldUseGlobalState" : false,
-                  "text" : "Label1"
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -6949,7 +7122,7 @@
                 "codeComponentIdentifier" : ".\/content\/Paragraph1.tsx_Paragraph1",
                 "codeComponentProps" : {
                   "color" : "#000000",
-                  "text" : "Paragraph1 - Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory."
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -7003,7 +7176,7 @@
                 "codeComponentIdentifier" : ".\/content\/Caption2.tsx_Caption2",
                 "codeComponentProps" : {
                   "color" : "#000000",
-                  "text" : "Caption2"
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -7057,7 +7230,7 @@
                 "codeComponentIdentifier" : ".\/content\/Caption1.tsx_Caption1",
                 "codeComponentProps" : {
                   "color" : "#000000",
-                  "text" : " Caption1 - Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory."
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -7111,7 +7284,7 @@
                 "codeComponentIdentifier" : ".\/content\/Display.tsx_Display",
                 "codeComponentProps" : {
                   "color" : "#000000",
-                  "text" : "We ignite opportunity by setting the world in motion."
+                  "text" : "Default Text"
                 },
                 "codeOverrideEnabled" : false,
                 "constraintsLocked" : false,
@@ -7282,15 +7455,23 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/Input.tsx_Input",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "clearable" : true,
               "disabled" : false,
-              "error" : false,
-              "globalStateKey" : "var1",
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
               "placeholder" : "placeholder",
-              "positive" : false,
-              "shouldUseGlobalState" : true,
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "size" : "default",
-              "type" : "text",
               "value" : ""
             },
             "codeOverrideEnabled" : false,
@@ -7344,15 +7525,23 @@
             "clip" : true,
             "codeComponentIdentifier" : ".\/inputs\/Input.tsx_Input",
             "codeComponentProps" : {
+              "caption" : "Caption",
               "clearable" : true,
               "disabled" : false,
-              "error" : false,
-              "globalStateKey" : "var1",
+              "errorMessage" : "Error caption",
+              "formValidationType" : "none",
+              "formValidationTypeNumberMax" : 0,
+              "formValidationTypeNumberMin" : 0,
+              "formValidationTypeRegex" : ".+",
+              "formValidationTypeStringMaxLength" : 0,
+              "formValidationTypeStringMinLength" : 0,
+              "inputState" : "default",
+              "label" : "Label",
               "placeholder" : "placeholder",
-              "positive" : false,
-              "shouldUseGlobalState" : true,
+              "positiveMessage" : "Positive caption",
+              "showCaption" : true,
+              "showLabel" : true,
               "size" : "default",
-              "type" : "text",
               "value" : ""
             },
             "codeOverrideEnabled" : false,
@@ -7407,8 +7596,8 @@
             "codeComponentIdentifier" : ".\/content\/Label1.tsx_Label1",
             "codeComponentProps" : {
               "color" : "#000000",
-              "globalStateKey" : "var1.firstName",
-              "shouldUseGlobalState" : true,
+              "globalStateKey" : "",
+              "shouldUseGlobalState" : false,
               "text" : "Default Text"
             },
             "codeOverrideEnabled" : false,
@@ -7664,74 +7853,6 @@
             "__class" : "CodeComponentNode",
             "aspectRatio" : null,
             "bottom" : null,
-            "centerAnchorX" : 0.27645376549094375,
-            "centerAnchorY" : 0.30549450549450552,
-            "children" : [
-
-            ],
-            "clip" : true,
-            "codeComponentIdentifier" : ".\/navigation\/Tabs.tsx_Tabs",
-            "codeComponentProps" : {
-              "activeKey" : 0,
-              "content" : [
-                {
-                  "enabled" : true,
-                  "type" : "componentinstance",
-                  "value" : "KRZlb8g1x"
-                },
-                {
-                  "enabled" : true,
-                  "type" : "componentinstance",
-                  "value" : "aac_m1Ka3"
-                }
-              ],
-              "disabled" : false,
-              "orientation" : "horizontal",
-              "renderAll" : false
-            },
-            "codeOverrideEnabled" : false,
-            "constraintsLocked" : false,
-            "deviceType" : null,
-            "exportOptions" : [
-
-            ],
-            "fillColor" : "rgba(255,255,255,1)",
-            "fillEnabled" : false,
-            "fillImage" : null,
-            "fillImagePixelHeight" : null,
-            "fillImagePixelWidth" : null,
-            "fillImageResize" : "fill",
-            "fillType" : "color",
-            "height" : 200,
-            "heightType" : 0,
-            "id" : "wHvK_OPPe",
-            "intrinsicHeight" : 200,
-            "intrinsicWidth" : 500,
-            "left" : 40,
-            "locked" : false,
-            "name" : null,
-            "opacity" : 1,
-            "originalid" : null,
-            "parentid" : "HyGt8SEgo",
-            "previewSettings" : null,
-            "radius" : 0,
-            "radiusBottomLeft" : 0,
-            "radiusBottomRight" : 0,
-            "radiusIsRelative" : false,
-            "radiusPerCorner" : false,
-            "radiusTopLeft" : 0,
-            "radiusTopRight" : 0,
-            "right" : null,
-            "rotation" : 0,
-            "top" : 178,
-            "visible" : true,
-            "width" : 500,
-            "widthType" : 0
-          },
-          {
-            "__class" : "CodeComponentNode",
-            "aspectRatio" : null,
-            "bottom" : null,
             "centerAnchorX" : 0.22878932316491898,
             "centerAnchorY" : 0.4868131868131868,
             "children" : [
@@ -7850,6 +7971,74 @@
             "top" : null,
             "visible" : true,
             "width" : 137,
+            "widthType" : 0
+          },
+          {
+            "__class" : "CodeComponentNode",
+            "aspectRatio" : null,
+            "bottom" : null,
+            "centerAnchorX" : 0.27645376549094375,
+            "centerAnchorY" : 0.30549450549450552,
+            "children" : [
+
+            ],
+            "clip" : true,
+            "codeComponentIdentifier" : ".\/navigation\/Tabs.tsx_Tabs",
+            "codeComponentProps" : {
+              "activeKey" : 0,
+              "content" : [
+                {
+                  "enabled" : true,
+                  "type" : "componentinstance",
+                  "value" : "KRZlb8g1x"
+                },
+                {
+                  "enabled" : true,
+                  "type" : "componentinstance",
+                  "value" : "aac_m1Ka3"
+                }
+              ],
+              "disabled" : false,
+              "orientation" : "horizontal",
+              "renderAll" : false
+            },
+            "codeOverrideEnabled" : false,
+            "constraintsLocked" : false,
+            "deviceType" : null,
+            "exportOptions" : [
+
+            ],
+            "fillColor" : "rgba(255,255,255,1)",
+            "fillEnabled" : false,
+            "fillImage" : null,
+            "fillImagePixelHeight" : null,
+            "fillImagePixelWidth" : null,
+            "fillImageResize" : "fill",
+            "fillType" : "color",
+            "height" : 200,
+            "heightType" : 0,
+            "id" : "esbaTgnXx",
+            "intrinsicHeight" : 200,
+            "intrinsicWidth" : 500,
+            "left" : 40,
+            "locked" : false,
+            "name" : null,
+            "opacity" : 1,
+            "originalid" : null,
+            "parentid" : "HyGt8SEgo",
+            "previewSettings" : null,
+            "radius" : 0,
+            "radiusBottomLeft" : 0,
+            "radiusBottomRight" : 0,
+            "radiusIsRelative" : false,
+            "radiusPerCorner" : false,
+            "radiusTopLeft" : 0,
+            "radiusTopRight" : 0,
+            "right" : null,
+            "rotation" : 0,
+            "top" : 178,
+            "visible" : true,
+            "width" : 500,
             "widthType" : 0
           }
         ],
