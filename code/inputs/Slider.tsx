@@ -8,6 +8,8 @@ import {withHOC} from '../withHOC';
 import {useManagedState} from '../utils/useManagedState';
 
 const InnerSlider: React.SFC<any> = ({
+  kind,
+  value: initialValue,
   valueFrom,
   valueTo,
   onChange: originalOnChange,
@@ -19,7 +21,7 @@ const InnerSlider: React.SFC<any> = ({
   inputState,
   ...props
 }) => {
-  const [value, setValue] = useManagedState<number[]>([valueFrom, valueTo]);
+  const [value, setValue] = useManagedState<number[]>(kind === 'single-value' ? [initialValue] : [valueFrom, valueTo]);
 
   const onChange = React.useCallback(
     e => {
@@ -57,12 +59,26 @@ Slider.defaultProps = {
 };
 
 addPropertyControls(Slider, {
+  kind: {
+    type: ControlType.Enum,
+    title: 'Kind',
+    options: ['single-value', 'range'],
+    optionTitles: ['Single Value', 'Range'],
+    defaultValue: 'single-value',
+  },
+  value: {
+    type: ControlType.Number,
+    title: 'Value',
+    defaultValue: 2,
+    hidden: props => props.kind !== 'single-value',
+  },
   valueFrom: {
     type: ControlType.Number,
     defaultValue: 1,
     displayStepper: true,
+    hidden: props => props.kind !== 'range',
   },
-  valueTo: {type: ControlType.Number, defaultValue: 2, displayStepper: true},
+  valueTo: {type: ControlType.Number, defaultValue: 2, displayStepper: true, hidden: props => props.kind !== 'range'},
   min: merge(controls.min, {defaultValue: 0, displayStepper: true}),
   max: merge(controls.max, {defaultValue: 10, displayStepper: true}),
   step: merge(controls.step, {
